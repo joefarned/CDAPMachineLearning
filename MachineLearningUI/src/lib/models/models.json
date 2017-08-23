@@ -1,0 +1,16 @@
+{
+	"linear-regression-analytics": {
+		"name": "Linear Regression",
+		"hyperparameters": {
+			"numIterations": "100",
+			"stepSize": "0.001"
+		},
+		"trainer": "LinearRegressionTrainer",
+		"classifier": "LinearRegressionClassifier"
+	},
+	"logistic-regression": {
+		"name": "Logistic Regression",
+		"hyperparameters": {
+		}
+	}
+}

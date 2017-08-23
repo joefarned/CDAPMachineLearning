@@ -1,0 +1,98 @@
+{
+  "artifact": {
+    "name": "cdap-data-pipeline",
+    "version": "4.2.0",
+    "scope": "SYSTEM"
+  },
+  "config": {
+    "batchInterval": "10s",
+    "resources": {
+      "memoryMB": 1024,
+      "virtualCores": 1
+    },
+    "driverResources": {
+      "memoryMB": 1024,
+      "virtualCores": 1
+    },
+    "clientResources": {
+      "virtualCores": 1,
+      "memoryMB": 1024
+    },
+    "schedule": "0 * * * *",
+    "connections": [
+      {
+        "from": "SOURCE",
+        "to": "TRAINER"
+      }
+    ],
+    "comments": [],
+    "postActions": [],
+    "engine": "mapreduce",
+    "stages": [
+      {
+        "name": "SOURCE",
+        "plugin": {
+          "name": "TPFSAvro",
+          "type": "batchsource",
+          "label": "SOURCE",
+          "artifact": {
+            "name": "core-plugins",
+            "version": "1.7.0",
+            "scope": "SYSTEM"
+          },
+          "properties": {
+            "schema": "SCHEMA",
+            "name": "SOURCE",
+            "duration": "365d"
+          }
+        },
+        "outputSchema": "SCHEMA",
+        "type": "batchsource",
+        "label": "SOURCE",
+        "icon": "icon-tpfsavro",
+        "_uiPosition": {
+          "top": "50px",
+          "left": "50px"
+        }
+      },
+      {
+        "name": "TRAINER",
+        "plugin": {
+          "name": "TRAINER",
+          "type": "sparksink",
+          "label": "TRAINER",
+          "artifact": {
+            "name": "MODELTYPE",
+            "version": "1.0-SNAPSHOT",
+            "scope": "USER"
+          },
+          "properties": {
+            "featureFieldsToInclude": "INCLUDE",
+            "labelField": "RESPONSE",
+            "fileSetName": "MODELFILESET",
+            "numIterations": "${numIterations}",
+            "stepSize": "${stepSize}"
+          }
+        },
+        "outputSchema": "SCHEMA",
+        "inputSchema": [
+          {
+            "name": "SOURCE",
+            "schema": "SCHEMA"
+          }
+        ],
+        "type": "sparksink",
+        "label": "TRAINER",
+        "icon": "fa-plug",
+        "_uiPosition": {
+          "top": "50px",
+          "left": "350px"
+        }
+      }
+    ],
+    "properties": {},
+    "processTimingEnabled": true,
+    "stageLoggingEnabled": true,
+    "maxConcurrentRuns": 1
+  }
+}

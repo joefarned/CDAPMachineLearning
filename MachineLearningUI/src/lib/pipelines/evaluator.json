@@ -1,0 +1,117 @@
+{
+  "artifact": {
+    "name": "cdap-data-pipeline",
+    "version": "4.2.0",
+    "scope": "SYSTEM"
+  },
+  "config": {
+    "batchInterval": "10s",
+    "resources": {
+      "memoryMB": 1024,
+      "virtualCores": 1
+    },
+    "driverResources": {
+      "memoryMB": 1024,
+      "virtualCores": 1
+    },
+    "clientResources": {
+      "virtualCores": 1,
+      "memoryMB": 1024
+    },
+    "schedule": "0 * * * *",
+    "connections": [
+      {
+        "from": "SOURCE",
+        "to": "CLASSIFIER"
+      },
+      {
+        "from": "CLASSIFIER",
+        "to": "SINK"
+      }
+    ],
+    "comments": [],
+    "postActions": [],
+    "engine": "mapreduce",
+    "stages": [
+      {
+        "name": "SOURCE",
+        "plugin": {
+          "name": "TPFSAvro",
+          "type": "batchsource",
+          "label": "SOURCE",
+          "artifact": {
+            "name": "core-plugins",
+            "version": "1.7.0",
+            "scope": "SYSTEM"
+          },
+          "properties": {
+            "schema": "INPUT_SCHEMA",
+            "name": "SOURCE",
+            "duration": "365d"
+          }
+        },
+        "type": "batchsource",
+        "label": "SOURCE",
+        "icon": "icon-tpfsavro",
+        "_uiPosition": {
+          "top": "50px",
+          "left": "50px"
+        }
+      },
+      {
+        "name": "CLASSIFIER",
+        "plugin": {
+          "name": "CLASSIFIER",
+          "type": "sparkcompute",
+          "label": "CLASSIFIER",
+          "artifact": {
+            "name": "MODELTYPE",
+            "version": "1.0-SNAPSHOT",
+            "scope": "USER"
+          },
+          "properties": {
+            "featureFieldsToInclude": "INCLUDE",
+            "fileSetName": "MODELFILESET",
+            "predictionField": "y_hat"
+          }
+        },
+        "type": "sparkcompute",
+        "label": "CLASSIFIER",
+        "icon": "fa-plug",
+        "_uiPosition": {
+          "top": "50px",
+          "left": "350px"
+        }
+      },
+      {
+        "name": "SINK",
+        "plugin": {
+          "name": "Table",
+          "type": "batchsink",
+          "label": "SINK",
+          "artifact": {
+            "name": "core-plugins",
+            "version": "1.7.0",
+            "scope": "SYSTEM"
+          },
+          "properties": {
+            "schema": "CLASSIFICATION_SCHEMA",
+            "name": "SINK",
+            "schema.row.field": "ROWFIELD"
+          }
+        },
+        "type": "batchsink",
+        "label": "SINK",
+        "icon": "icon-table",
+        "_uiPosition": {
+          "top": "50px",
+          "left": "650px"
+        }
+      }
+    ],
+    "properties": {},
+    "processTimingEnabled": true,
+    "stageLoggingEnabled": true,
+    "maxConcurrentRuns": 1
+  }
+}

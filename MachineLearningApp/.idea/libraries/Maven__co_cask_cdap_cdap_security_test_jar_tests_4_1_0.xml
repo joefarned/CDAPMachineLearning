@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: co.cask.cdap:cdap-security:test-jar:tests:4.1.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/co/cask/cdap/cdap-security/4.1.0/cdap-security-4.1.0-tests.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/co/cask/cdap/cdap-security/4.1.0/cdap-security-4.1.0-test-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/co/cask/cdap/cdap-security/4.1.0/cdap-security-4.1.0-test-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

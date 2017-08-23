@@ -1,0 +1,8 @@
+co/cask/cdap/apps/movierecommender/Instance.class
+co/cask/cdap/apps/movierecommender/InstanceBuilderSpecification.class
+co/cask/cdap/apps/movierecommender/Instance$Run.class
+co/cask/cdap/apps/movierecommender/MachineLearningApp$OptimizerWorkflow.class
+co/cask/cdap/apps/movierecommender/MachineLearningApp$InstanceWorkflow.class
+co/cask/cdap/apps/movierecommender/MachineLearningApp$MachineLearningService.class
+co/cask/cdap/apps/movierecommender/OptimizerSpecification.class
+co/cask/cdap/apps/movierecommender/MachineLearningApp.class

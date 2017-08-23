@@ -1,0 +1,133 @@
+body {
+	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+}
+
+.nav-bar {
+	height: 50px;
+	background: #23313F;
+	margin-bottom: 50px;
+}
+
+.logo {
+	margin: 10px 0px 0px 20px;
+	height: 80px;
+}
+
+.plus {
+	float: right;
+	height: 65px;
+	margin: 15px 20px 0px 0px;
+}
+
+.feature {
+	width: 40%;
+	margin-left: 30px;
+	box-shadow: 0 1px 10px 0 rgba(0,0,0,.3);
+	float: left;
+}
+
+	.feature-header {
+		background: #23313F;
+	}
+
+		.feature-header-title {
+			border: none;
+			width: 80%;
+			margin: 5px 10% 5px 10%;
+			text-align: center;
+			font-size: 20px;
+		    outline: none;
+		    background: inherit;
+		    color: white;
+		}
+
+	.feature-status {
+		border-bottom: 1px solid #ccc;
+		padding: 10px;
+		height: 20px;
+	}
+
+	.feature-form {
+		padding: 10px;
+	}
+
+		.feature-form-element {
+			margin: 5px 0px 5px 0px;
+			display: inline-block;
+			width: 100%;
+		}
+
+		.feature-form-input {
+			width: 95%;
+		}
+
+	.feature-graph {
+		border-bottom: 1px solid #ccc;
+		border-top: 1px solid #ccc;
+	}
+
+		.feature-graph-run {
+			border-top: 1px solid #ccc;
+			padding: 2px 10px 3px 10px;
+			width: calc(100% - 20px);
+			display: inline-block;
+			font-size: 14px;
+		}
+
+	.feature-submit {
+		height: 50px;	
+		width: 100%;
+	}
+
+		.feature-submit-icon {
+			height: 50px;
+			width: 50px;
+			margin-left: calc(50% - 25px);
+		}
+
+.model-container {
+	width: calc(60% - 90px);
+	margin-left: 30px;
+	float: left;
+}
+
+.model {
+	margin: 0px 0px 30px 30px;
+	box-shadow: 0 1px 10px 0 rgba(0,0,0,.3);
+	width: 200px;
+	float: left;	
+}
+
+.model-featured {
+	margin: 0px 0px 30px 30px;
+	box-shadow: 0 1px 10px 0 yellow;
+	width: 200px;
+	float: left;	
+}
+
+	.model-header {
+		background: #23313F;
+		padding: 6px 0px 6px 0px;
+		vertical-align: middle;
+		text-align: center;
+		font-size: 20px;
+	    color: white;
+	}
+
+
+	.model-status {
+		border-bottom: 1px solid #ccc;
+		padding: 10px;
+		height: 20px;
+	}
+
+	.model-delete {
+		height: 30px;	
+		width: 100%;
+	}
+
+		.model-delete-icon {
+			height: 30px;
+			width: 30px;
+			margin-left: calc(50% - 15px);
+		}
